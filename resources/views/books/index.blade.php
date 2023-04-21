@@ -6,6 +6,10 @@
 
     <h1>ciao sono INDEX</h1>
 
+    <a class="btn btn-primary" href="{{ route('books.create') }}">
+        Aggiungi nuovo libro
+    </a>
+
     <table class="table">
         <thead>
             <tr>
