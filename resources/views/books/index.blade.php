@@ -2,39 +2,57 @@
 
 @section('content')
 
-<h1>ciao sono INDEX</h1>
+<div class="container">
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">id</th>
-            <th scope="col">Titolo</th>
-            <th scope="col">Autore</th>
-            <th scope="col">Genere</th>
-            <th scope="col">N.Copie</th>
-            <th scope="col">Descrizione</th>
+    <h1>ciao sono INDEX</h1>
 
-        </tr>
-    </thead>
-    <tbody>
-@forelse ($books as $book)
-        <tr>
-            <th scope="row">{{ $book->id }}</th>
-        <td>
-            <a href="{{ route('books.show',$book) }}">
-            {{ $book->titolo }}
-            </a>
-        </td>
-        <td>{{ $book->autore }}</td>
-        <td>{{ $book->genere }}</td>
-        <td>{{ $book->numero_copie }}</td>
-        <td>{{ $book->descrizione }}</td>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">Titolo</th>
+                <th scope="col">Autore</th>
+                <th scope="col">Genere</th>
+                <th scope="col">N.Copie</th>
+                <th scope="col">Descrizione</th>
+                <th scope="col">Bottoni</th>
 
-      </tr>
-@empty
-@endforelse
-    </tbody>
-  </table>
+
+            </tr>
+        </thead>
+        <tbody>
+    @forelse ($books as $book)
+            <tr>
+                <th scope="row">{{ $book->id }}</th>
+            <td>
+                <a href="{{ route('books.show',$book) }}">
+                {{ $book->titolo }}
+                </a>
+            </td>
+            <td>{{ $book->autore }}</td>
+            <td>{{ $book->genere }}</td>
+            <td>{{ $book->numero_copie }}</td>
+            <td>{{ $book->descrizione }}</td>
+            <td>
+                <a class="btn btn-sm btn-secondary" href="">Modifica</a>
+                <form action="{{ route('books.destroy',$book) }}" method="POST">
+
+                    @csrf
+                    @method('DELETE')
+
+                    <input type="submit" class="btn btn-danger btn-sm" value="Elimina">
+
+                </form>
+            </td>
+
+          </tr>
+    @empty
+    @endforelse
+        </tbody>
+      </table>
+
+</div>
+
 
 
 @endsection
