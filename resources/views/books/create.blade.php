@@ -31,8 +31,8 @@
                 <textarea type="text" class="form-control" id="description" name="description" cols="30" rows="10" ></textarea>
           </div>
 
-        <a href="">
-
+        <a class="btn btn-sm btn-primary" href="">
+           Salva
         </a>
 
       </form>
