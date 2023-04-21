@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Guest;
 
+use App\Models\Book;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $books = Book::all();
+
+        return view('books.index', compact('books'));
     }
 
     /**
@@ -24,7 +27,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view('books.create');
     }
 
     /**
@@ -44,9 +47,9 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Book $book)
     {
-        //
+        return view ('books.show',compact('book'));
     }
 
     /**
@@ -55,9 +58,9 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Book $book)
     {
-        //
+        return view ('books.edit',compact('book'));
     }
 
     /**

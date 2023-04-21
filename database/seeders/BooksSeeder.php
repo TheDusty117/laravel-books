@@ -26,7 +26,6 @@ class BooksSeeder extends Seeder
             $newBook->numero_copie = $faker->numberBetween(1,200) ;
             $newBook->descrizione = $faker->paragraph(4,true);
 
-
             $newBook->save();
         }
 
