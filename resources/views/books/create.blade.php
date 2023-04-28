@@ -26,6 +26,11 @@
           </div>
 
           <div class="mb-3">
+            <label for="genere" class="form-label">Genere</label>
+            <input type="text" class="form-control" id="genere" name="genere" value="{{old('genere')}}">
+          </div>
+
+          <div class="mb-3">
             <label for="descrizione" class="form-label">Descrizione</label>
                 <textarea type="text" class="form-control" id="descrizione" name="descrizione" cols="30" rows="10" >
                     {{-- {{old('descrizione')}} --}}

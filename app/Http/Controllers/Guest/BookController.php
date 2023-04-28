@@ -18,7 +18,7 @@ class BookController extends Controller
     public function index()
     {
         $books = Book::all();
-
+        // dd($books[0]->genre);
         return view('books.index', compact('books'));
     }
 

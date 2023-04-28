@@ -34,7 +34,19 @@
                 </a>
             </td>
             <td>{{ $book->autore }}</td>
-            <td>{{ $book->genere }}</td>
+
+            <td>
+
+                @forelse ($book->genre()->get() as $genre)
+                    <span class="badge rounded-pill text-bg-warning">
+                        {{ $genre->name }}
+                    </span>
+                @empty
+                    -
+                @endforelse
+
+            </td>
+
             <td>{{ $book->numero_copie }}</td>
             <td>{{ $book->descrizione }}</td>
             <td>
