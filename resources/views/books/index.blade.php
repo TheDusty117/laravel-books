@@ -38,7 +38,7 @@
             <td>{{ $book->numero_copie }}</td>
             <td>{{ $book->descrizione }}</td>
             <td>
-                <a class="btn btn-sm btn-secondary" href="">Modifica</a>
+                <a class="btn btn-sm btn-secondary" href="{{ route('books.edit',$book)}}">Modifica</a>
                 <form action="{{ route('books.destroy',$book) }}" method="POST">
 
                     @csrf

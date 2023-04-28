@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+
 class BookController extends Controller
 {
     /**
@@ -38,7 +39,29 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $data = $request->validate([
+
+        //     'titolo' => 'required|max:100|min:2',
+        //     'autore' => 'string|nullable',
+        //     'genere' => 'required|max:100',
+        //     'numero_copie' => 'required',
+        //     'descrizione' => 'nullable',
+
+
+        // ]);
+
+        $data = $request->all();
+        $new_book = new Book();
+
+        $new_book->titolo = $data['titolo'];
+        $new_book->autore = $data['autore'];
+        $new_book->genere = $data['genere'];
+        $new_book->numero_copie = $data['numero_copie'];
+        $new_book->descrizione = $data['descrizione'];
+
+        $new_book->save();
+
+        return to_route('books.show',$new_book);
     }
 
     /**
@@ -70,9 +93,22 @@ class BookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Book $book)
+
     {
-        //
+
+        $data = $request->all();
+
+        $book->titolo = $data['titolo'];
+        $book->autore = $data['autore'];
+        $book->genere = $data['genere'];
+        $book->numero_copie = $data['numero_copie'];
+        $book->descrizione = $data['descrizione'];
+
+        $book->save();
+
+        return to_route('books.show',$book);
+
     }
 
     /**
