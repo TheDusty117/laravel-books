@@ -22,10 +22,6 @@
             <input type="text" class="form-control" id="autore" name="autore" value="{{old('autore',$book->autore)}}">
           </div>
 
-          <div class="mb-3">
-            <label for="genere" class="form-label">Genere</label>
-            <input type="text" class="form-control" id="genere" name="genere" value="{{old('genere',$book->genere)}}">
-          </div>
 
           <div class="mb-3">
             <label for="numero_copie" class="form-label">Numero Copie</label>

@@ -44,7 +44,6 @@ class BookController extends Controller
 
             'titolo' => 'required|max:100|min:2',
             'autore' => 'string|nullable',
-            'genere' => 'required|max:100',
             'numero_copie' => 'required',
             'descrizione' => 'required|min:5',
 
@@ -55,7 +54,6 @@ class BookController extends Controller
 
         $new_book->titolo = $data['titolo'];
         $new_book->autore = $data['autore'];
-        $new_book->genere = $data['genere'];
         $new_book->numero_copie = $data['numero_copie'];
         $new_book->descrizione = $data['descrizione'];
 
@@ -101,7 +99,6 @@ class BookController extends Controller
 
             'titolo' => 'required|max:100|min:2',
             'autore' => 'string|nullable',
-            'genere' => 'required|max:100',
             'numero_copie' => 'required',
             'descrizione' => 'required|min:5',
 
@@ -111,7 +108,6 @@ class BookController extends Controller
 
         $book->titolo = $data['titolo'];
         $book->autore = $data['autore'];
-        $book->genere = $data['genere'];
         $book->numero_copie = $data['numero_copie'];
         $book->descrizione = $data['descrizione'];
 

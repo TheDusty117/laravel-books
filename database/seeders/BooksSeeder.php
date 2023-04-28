@@ -22,7 +22,6 @@ class BooksSeeder extends Seeder
 
             $newBook->titolo = $faker->word;
             $newBook->autore = $faker->name;
-            $newBook->genere = $faker->word;
             $newBook->numero_copie = $faker->numberBetween(1,200) ;
             $newBook->descrizione = $faker->paragraph(4,true);
 
