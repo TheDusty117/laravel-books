@@ -6,6 +6,7 @@ use App\Models\Book;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Illuminate\Validation\Rule;
 
 class BookController extends Controller
 {
@@ -39,16 +40,15 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        // $data = $request->validate([
+        $data = $request->validate([
 
-        //     'titolo' => 'required|max:100|min:2',
-        //     'autore' => 'string|nullable',
-        //     'genere' => 'required|max:100',
-        //     'numero_copie' => 'required',
-        //     'descrizione' => 'nullable',
+            'titolo' => 'required|max:100|min:2',
+            'autore' => 'string|nullable',
+            'genere' => 'required|max:100',
+            'numero_copie' => 'required',
+            'descrizione' => 'required|min:5',
 
-
-        // ]);
+        ]);
 
         $data = $request->all();
         $new_book = new Book();
@@ -96,6 +96,16 @@ class BookController extends Controller
     public function update(Request $request, Book $book)
 
     {
+
+        $data = $request->validate([
+
+            'titolo' => 'required|max:100|min:2',
+            'autore' => 'string|nullable',
+            'genere' => 'required|max:100',
+            'numero_copie' => 'required',
+            'descrizione' => 'required|min:5',
+
+        ]);
 
         $data = $request->all();
 

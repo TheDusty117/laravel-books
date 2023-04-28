@@ -15,6 +15,8 @@
         <p>{{ $book->descrizione }}</p>
     </div>
 
+    <a class="btn btn-primary" href="{{route('books.index')}}">torna ad index</a>
+
 </div>
 
 @endsection
