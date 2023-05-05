@@ -16,9 +16,20 @@
         </div>
 
         <div class="mb-3">
-            <label for="autore" class="form-label">Autore</label>
-            <input type="text" class="form-control" id="autore" name="autore" value="{{old('autore')}}">
-          </div>
+            <label for="author" class="form-label">Autore</label>
+            <div class="d-flex @error('authors') is-invalid @enderror gap-3">
+                @foreach ($authors as $author)
+
+                <div class="form-check">
+                    <input name="authors[]" @checked( in_array($author->id, old('authors',[])) ) class="form-check-input" type="checkbox" value="{{ $author->id }}" id="flexCheckDefault">
+                    <label class="form-check-label" for="flexCheckDefault">
+                      {{$author->name}}
+                    </label>
+                </div>
+
+                @endforeach
+            </div>
+        </div>
 
           <div class="mb-3">
             <label for="numero_copie" class="form-label">Numero Copie</label>

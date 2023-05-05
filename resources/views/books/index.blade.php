@@ -33,7 +33,17 @@
                 {{ $book->titolo }}
                 </a>
             </td>
-            <td>{{ $book->autore }}</td>
+
+            {{-- autori many to many --}}
+            <td>
+                @forelse ($book->authors as $author)
+                    <span class="badge rounded-pill text-bg-light">
+                        {{ $author->name }}
+                    </span>
+                @empty
+                        -
+                @endforelse
+            </td>
 
             <td>
 
